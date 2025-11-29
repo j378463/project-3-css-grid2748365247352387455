@@ -1,0 +1,205 @@
+/* ===============================================
+   Greatest Hits – Full Responsive CSS Grid Layout
+   Explained line-by-line for learning purposes
+   =============================================== */
+
+html {
+  box-sizing: border-box; 
+  /* Sets border-box globally – padding & border are included in width/height */
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+  /* All elements (including pseudo-elements) inherit border-box from html */
+}
+
+body {
+  margin: 0; /* Removes default browser margin */
+  font-family: 'Segoe UI', Arial, sans-serif; /* Clean, modern font stack */
+  background: linear-gradient(135deg, #1a1a2e, #16213e); /* Dark blue-purple gradient background */
+  color: #eee; /* Light gray text for contrast */
+  min-height: 100vh; /* Ensures body takes full viewport height even with little content */
+}
+
+/* ===============================================
+   MAIN WRAPPER – Centers content & limits max width
+   =============================================== */
+.wrapper {
+  padding: 2rem 1rem; /* Vertical padding + horizontal (mobile) */
+  max-width: 1400px; /* Prevents layout from becoming too wide on large screens */
+  margin: 0 auto; /* Horizontally centers the wrapper */
+}
+
+/* ===============================================
+   GRID CONTAINER – Mobile-First Approach
+   =============================================== */
+.grid-container {
+  display: grid; /* Enables CSS Grid */
+  gap: 1.5rem; /* Space between all grid items (replaces margins) */
+  grid-auto-rows: minmax(180px, auto); 
+    /* All rows are at least 180px tall, but can grow if content needs more space */
+
+  /* Mobile layout (default) – single column, stacked vertically */
+  grid-template-areas:
+    "item1"
+    "item2"
+    "item3"
+    "item4"
+    "highlight1"
+    "highlight2"
+    "info1"
+    "info2"
+    "fullwidth"
+    "tip1"
+    "tip2"
+    "tip3"
+    "quote1"
+    "quote2"
+    "quote3"
+    "quote4"
+    "quote5";
+  /* Each name corresponds to style="grid-area: name" in HTML */
+}
+
+/* ===============================================
+   CARD & TESTIMONIAL BASE STYLING – Glassmorphism Effect
+   =============================================== */
+.card,
+.testimonial {
+  background: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
+  backdrop-filter: blur(12px); /* Blurs content behind the card (glass effect) */
+  -webkit-backdrop-filter: blur(12px); /* Safari support */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border */
+  border-radius: 16px; /* Rounded corners */
+  padding: 1.5rem; /* Inner spacing */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3); /* Deep shadow for depth */
+  transition: transform 0.3s ease; /* Smooth hover lift animation */
+}
+
+.card:hover,
+.testimonial:hover {
+  transform: translateY(-8px); /* Cards "float up" on hover */
+}
+
+/* ===============================================
+   RESPONSIVE IMAGES – Critical for good layout
+   =============================================== */
+.card img {
+  width: 100%; /* Full width of card */
+  height: 250px; /* Fixed height for consistency */
+  object-fit: cover; /* Crops image to fill space without distortion */
+  border-radius: 12px; /* Slightly rounded */
+  margin-bottom: 1rem; /* Space below image */
+  display: block; /* Removes inline spacing gap */
+}
+
+/* Full-width banner – taller image */
+.full img {
+  height: 300px; /* Larger hero image */
+}
+
+/* Small tip cards – shorter images */
+.tip img {
+  height: 180px; /* Fits smaller card size */
+}
+
+/* Testimonial avatars – circular profile pics */
+.testimonial img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%; /* Makes image circular */
+  object-fit: cover;
+  margin: 0 auto 1rem; /* Centers + space below */
+  display: block;
+  border: 3px solid rgba(255, 255, 255, 0.3); /* Glowing border effect */
+}
+
+/* ===============================================
+   TYPOGRAPHY
+   =============================================== */
+.card h3 {
+  margin: 0 0 0.5rem 0; /* Tight spacing under title */
+  color: #00ff9d; /* Bright cyan-green for headings */
+  font-size: 1.5rem;
+}
+
+.card p,
+.testimonial p {
+  margin: 0.75rem 0; /* Consistent paragraph spacing */
+  line-height: 1.5; /* Readable line height */
+}
+
+.testimonial p {
+  font-style: italic; /* Quote style */
+  text-align: center;
+  font-size: 1.1rem; /* Slightly larger for emphasis */
+}
+
+/* Links */
+a {
+  color: #ffd93d; /* Gold/yellow */
+  font-weight: bold;
+  text-decoration: none; /* Clean underline-free links */
+}
+a:hover {
+  color: #fff; /* Brighten on hover */
+  text-decoration: underline; /* Feedback on hover */
+}
+
+/* ===============================================
+   CARD COLOR THEMES – Each type has unique gradient
+   =============================================== */
+.featured   { background: linear-gradient(135deg, #ff6b6b, #feca57); color: #000; } /* Red → Orange (Top 4) */
+.highlight  { background: linear-gradient(135deg, #48dbfb, #0abde3); color: #000; } /* Cyan → Blue */
+.full       { background: linear-gradient(135deg, #ff9ff3, #f368e0); color: #000; text-align: center; } /* Pink → Magenta */
+.tip        { background: linear-gradient(135deg, #1dd1a1, #10ac84); color: #fff; } /* Green */
+.middle     { background: linear-gradient(135deg, #feca57, #ff9ff3); color: #000; } /* Yellow → Pink (special middle tip) */
+.info-left  { background: linear-gradient(135deg, #a29bfe, #6c5ce7); color: #fff; } /* Purple sidebar */
+.info-right { background: linear-gradient(135deg, #fd79a8, #e84393); color: #fff; } /* Pink sidebar */
+
+/* ===============================================
+   RESPONSIVE BREAKPOINTS – Layout evolves beautifully
+   =============================================== */
+
+/* Tablet (768px and up) – 12-column grid begins */
+@media (min-width: 768px) {
+  .grid-container {
+    grid-template-columns: repeat(12, 1fr); /* 12 equal columns */
+    grid-template-areas:
+      "item1  item1  item1  item2  item2  item2  item3  item3  item3  item4  item4  item4" /* Top 4 span 3 cols each */
+      "highlight1 highlight1 highlight1 highlight1 highlight1 highlight1 highlight2 highlight2 highlight2 highlight2 highlight2 highlight2" /* Highlights take 6 cols each */
+      "info1  info1  info1  info1  info2  info2  info2  info2  info2  info2  info2  info2" /* Sidebars full width */
+      "fullwidth fullwidth fullwidth fullwidth fullwidth fullwidth fullwidth fullwidth fullwidth fullwidth fullwidth fullwidth" /* Banner spans all */
+      "tip1   tip1   tip1   tip1   tip2   tip2   tip2   tip2   tip2   tip2   tip3   tip3" /* Tips arranged */
+      "quote1 quote1  quote2 quote2  quote3 quote3  quote4 quote4  quote5 quote5  .      ."; /* Quotes in pairs + empty cells */
+  }
+
+  .card img { height: 220px; } /* Slightly shorter images on tablet */
+  .full img { height: 400px; } /* Taller banner */
+}
+
+/* Desktop (1024px and up) – Final magazine-style layout */
+@media (min-width: 1024px) {
+  .grid-container {
+    grid-template-areas:
+      "item1  item1  item2  item2  item3  item3  item4  item4  .      .      .      ." /* Top 4 in a row, 2 cols each */
+      "highlight1 highlight1 highlight1 highlight1 highlight1 highlight1 highlight2 highlight2 highlight2 highlight2 highlight2 highlight2" /* Highlights full width */
+      "info1  info1  info1  info1  info2  info2  info2  info2  info2  info2  info2  info2" /* Sidebars full width */
+      "fullwidth fullwidth fullwidth fullwidth fullwidth fullwidth fullwidth fullwidth fullwidth fullwidth fullwidth fullwidth" /* Full banner */
+      "tip1   tip1   tip1   tip1   tip2   tip2   tip2   tip2   tip2   tip2   tip3   tip3" /* Tips aligned */
+      "quote1 quote1  quote2 quote2  quote3 quote3  quote4 quote4  quote5 quote5  .      ."; /* Quotes in bottom row */
+  }
+
+  .card img { height: 260px; } /* Taller images on desktop */
+  .full img { height: 500px; } /* Full-width banner */
+  .tip img { height: 200px; } /* Tip images grow slightly */
+}
+
+/* Extra large screens (1400px+) – Polish */
+@media (min-width: 1400px) {
+  .wrapper { 
+    padding: 3rem 2rem; /* More breathing room */
+  }
+  .grid-container { 
+    gap: 2rem; /* Larger gaps between cards */
+  }
+}
