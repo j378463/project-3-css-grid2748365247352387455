@@ -12,7 +12,8 @@ This is my submission for the Project 3 CSS Grid assignment.
 ## Hosting
 
 
-This site is hosted on GitHub (https://j378463.github.io/project-3-css-grid5748365247352387452/).
+This site is hosted on GitHub (https://j378463.github.io/project-3-css-grid2748365247352387455/).
+
 
 
 
