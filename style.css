@@ -194,7 +194,7 @@ a:hover {
   .tip img { height: 200px; } /* Tip images grow slightly */
 }
 
-/* Extra large screens (1400px+) – Polish */
+/* Extra large screens (1400px+) */
 @media (min-width: 1400px) {
   .wrapper { 
     padding: 3rem 2rem; /* More breathing room */
@@ -203,3 +203,4 @@ a:hover {
     gap: 2rem; /* Larger gaps between cards */
   }
 }
+
