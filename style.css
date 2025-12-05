@@ -156,7 +156,7 @@ a:hover {
 .info-right { background: linear-gradient(135deg, #fd79a8, #e84393); color: #fff; } /* Pink sidebar */
 
 /* ===============================================
-   RESPONSIVE BREAKPOINTS – Layout evolves beautifully
+   RESPONSIVE BREAKPOINTS – Layout evolves
    =============================================== */
 
 /* Tablet (768px and up) – 12-column grid begins */
@@ -176,7 +176,7 @@ a:hover {
   .full img { height: 400px; } /* Taller banner */
 }
 
-/* Desktop (1024px and up) – Final magazine-style layout */
+/* Desktop (1024px and up) – Final layout */
 @media (min-width: 1024px) {
   .grid-container {
     grid-template-areas:
@@ -202,5 +202,6 @@ a:hover {
     gap: 2rem; /* Larger gaps between cards */
   }
 }
+
 
 
