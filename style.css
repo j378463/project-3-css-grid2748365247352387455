@@ -1,6 +1,5 @@
 /* ===============================================
    Greatest Hits – Full Responsive CSS Grid Layout
-   Explained line-by-line for learning purposes
    =============================================== */
 
 html {
@@ -203,4 +202,5 @@ a:hover {
     gap: 2rem; /* Larger gaps between cards */
   }
 }
+
 
